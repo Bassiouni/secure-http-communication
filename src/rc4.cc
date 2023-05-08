@@ -1,7 +1,7 @@
 #include "rc4.h"
 #include "zip.h"
 
-#include <cassert>
+#include <iostream>
 
 RC4::RC4(const std::vector<uint8_t> &d)
     : data{d}, S{{}}, keyChain{{}}
@@ -14,7 +14,11 @@ RC4::RC4(const std::vector<uint8_t> &d)
 
 auto RC4::generateKeyChain(const std::vector<uint8_t> &key) -> RC4 & // Pseudo-random generation algorithm (PRGA)
 {
-    assert(1 <= key.size() && key.size() <= 256);
+    if (!(1 <= key.size() && key.size() <= 256))
+    {
+        std::cerr << "No connection has been established" << std::endl;
+        exit(2);
+    }
 
     // Key-scheduling algorithm (KSA)
     this->permutatePossibleBytesFromKey(key);
