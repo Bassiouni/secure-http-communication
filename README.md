@@ -1,5 +1,6 @@
-# Encrypted Messaging System
-Simple Encrypted Messaging System Over HTTP Protocol
+# Secure HTTP Communication
+End-to-end encrypted communication protocol client built over HTTP solving the security issue with using HTTP only,
+applying network encryption technique and key exchange handshake, written in C++
 
 ## How to use
 
